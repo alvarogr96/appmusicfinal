@@ -7,13 +7,13 @@ return array(
       'default' => 
       array(
         0 => '001_roles',
-        1 => '002_privacidad',
-        2 => '003_usuarios',
-        3 => '004_listas',
-        4 => '005_canciones',
-        5 => '006_noticias',
-        6 => '007_contienen',
-        7 => '008_siguen',
+        1 => '002_privacity',
+        2 => '003_users',
+        3 => '004_lists',
+        4 => '005_songs',
+        5 => '006_news',
+        6 => '007_contain',
+        7 => '008_follow',
       ),
     ),
     'module' => 

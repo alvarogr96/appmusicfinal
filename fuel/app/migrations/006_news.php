@@ -1,21 +1,21 @@
 <?php 
 namespace Fuel\Migrations;
-class Noticias
+class News
 {
     function up()
     {
-        \DBUtil::create_table('noticias', array(
+        \DBUtil::create_table('news', array(
             'id' => array('type' => 'int', 'constraint' => 11, 'auto_increment' => true),
-            'titulo' => array('type' => 'varchar', 'constraint' => 100),
-            'descripcion' => array('type' => 'int', 'constraint' => 100),
-            'id_usuario' => array('type' => 'int', 'constraint' => 11),
+            'title' => array('type' => 'varchar', 'constraint' => 100),
+            'description' => array('type' => 'int', 'constraint' => 100),
+            'id_user' => array('type' => 'int', 'constraint' => 11),
         ), array('id'), false, 'InnoDB', 'utf8_unicode_ci',
 		    array(
 		        array(
-		            'constraint' => 'claveAjenaNoticiasAUsuarios',
-		            'key' => 'id_usuario',
+		            'constraint' => 'foreignKeyFromNewsToUsers',
+		            'key' => 'id_user',
 		            'reference' => array(
-		                'table' => 'usuarios',
+		                'table' => 'users',
 		                'column' => 'id',
 		            ),
 		            'on_update' => 'CASCADE',
@@ -26,6 +26,6 @@ class Noticias
     }
     function down()
     {
-       \DBUtil::drop_table('noticias');
+       \DBUtil::drop_table('users');
     }
 }
