@@ -14,8 +14,28 @@ class Model_Users extends Orm\Model
          'password' => array(
             'data_type' => 'varchar'   
         ),
-       
-        'image_profile' => array(
+         'id_device' => array(
+            'data_type' => 'varchar'   
+        ),
+         'image_profile' => array(
+            'data_type' => 'varchar'   
+        ),
+         'x' => array(
+            'data_type' => 'decimal'   
+        ),
+         'y' => array(
+            'data_type' => 'decimal'   
+        ),
+         'active' => array(
+            'data_type' => 'int'   
+        ),
+         'birthday' => array(
+            'data_type' => 'varchar'   
+        ),
+         'city' => array(
+            'data_type' => 'varchar'   
+        ),
+         'description' => array(
             'data_type' => 'varchar'   
         ),
         'id_rol',
