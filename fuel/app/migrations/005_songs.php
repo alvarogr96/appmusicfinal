@@ -7,9 +7,9 @@ class Songs
         \DBUtil::create_table('songs', array(
             'id' => array('type' => 'int', 'constraint' => 11, 'auto_increment' => true),
             'title' => array('type' => 'varchar', 'constraint' => 100),
-            'artist' => array('type' => 'int', 'constraint' => 100),
-            'url' => array('type' => 'int', 'constraint' => 100),
-            'reproductions' => array('type' => 'int', 'constraint' => 11),
+            'artist' => array('type' => 'varchar', 'constraint' => 100),
+            'url' => array('type' => 'varchar', 'constraint' => 100),
+            'reproductions' => array('type' => 'int', 'constraint' => 11, 'null' => true),
 
         ), array('id'));
     }

@@ -5,6 +5,7 @@ use Firebase\JWT\JWT;
 class Controller_Users extends Controller_Rest
 {
     private $key = "dejr334irj3irji3r4j3rji3jiSj3jri";
+    
     public function post_create()
     {
         try {
