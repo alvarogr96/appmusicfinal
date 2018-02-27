@@ -26,6 +26,6 @@ class News
     }
     function down()
     {
-       \DBUtil::drop_table('users');
+       \DBUtil::drop_table('news');
     }
 }
