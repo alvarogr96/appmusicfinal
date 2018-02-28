@@ -2,7 +2,7 @@
 
 use Firebase\JWT\JWT;
 
-class Controller_Lists extends Controller_Rest
+class Controller_News extends Controller_Rest
 {
 
 	private $key = "dejr334irj3irji3r4j3rji3jiSj3jri";
@@ -10,7 +10,7 @@ class Controller_Lists extends Controller_Rest
     {
     	try {
             
-            if ( empty($_POST['title']))
+            if ( empty($_POST['title']), empty($_POST['description']))
             {
                 $json = $this->response(array(
                     'code' => 400,
@@ -18,35 +18,29 @@ class Controller_Lists extends Controller_Rest
                 ));
                 return $json;            }
 
-            $list = $_POST['title'];
+            $new = $_POST['title'];
+            $new = $_POST['description'];
 
-            if($this->isListCreated($list))
+            if($this->isNewCreated($new))
             {
                 $json = $this->response(array(
                     'code' => 400,
-                    'message' => 'Lista ya existe',
+                    'message' => 'La noticia ya existe',
                     'data' => []
                 ));
                 return $json;
             }
 
             $input = $_POST;
-            $list = new Model_Lists();
-            $list->title = $input['title'];
-            $list->editable = 1;
-            $list->id_user = 1;
-            $list->save();
-            /*
-            $dataToken = array(
-                        "title" => $list,
-                        
-                    );
-
-                    $token = JWT::encode($dataToken, $this->$key);
-                    */
+            $new = new Model_News();
+            $new->title = $input['title'];
+            $new->description = $input['description'];
+            $new->id_user = 1;
+            $new->save();
+    
             $json = $this->response(array(
                 'code' => 200,
-                'message' => 'Lista creada',
+                'message' => 'Noticia creada',
                 'data' => []
             ));
             return $json;
@@ -60,23 +54,23 @@ class Controller_Lists extends Controller_Rest
             return $json;
         }
     }
-     public function get_lists()
+     public function get_news()
     {
         /*return $this->respuesta(500, 'trace');
         exit;*/
-        $lists = Model_Lists::find('all');
+        $news = Model_Lists::find('all');
         return $this->response(Arr::reindex($lists));
     }
 
-        public function isListCreated($title)
+        public function isNewCreated($title)
     {
-        $lists = Model_Lists::find('all', array(
+        $news = Model_Lists::find('all', array(
             'where' => array(
                 array('title', $title)
             )
         ));
         
-        if(count($lists) < 1)  {
+        if(count($news) < 1)  {
             return false;
         }
         else 
