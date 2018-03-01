@@ -22,4 +22,13 @@ class Model_Lists extends Orm\Model
             'cascade_delete' => false,
         )
     );
+    protected static $_has_many = array(
+        'contain' => array(
+            'key_from' => 'id',
+            'model_to' => 'Model_Contain',
+            'key_to' => 'id_list',
+            'cascade_save' => false,
+            'cascade_delete' => false,
+        )
+    );
 }

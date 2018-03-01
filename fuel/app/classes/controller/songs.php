@@ -131,6 +131,10 @@ class Controller_Songs extends Controller_Rest
                     ));
             }
         }
+    }
+
+    public function post_addSong(){
+        
     }            
 
 }

@@ -19,6 +19,15 @@ class Model_Songs extends Orm\Model
         ),
 
     );
+    protected static $_has_many = array(
+        'contain' => array(
+            'key_from' => 'id',
+            'model_to' => 'Model_Contain',
+            'key_to' => 'id_song',
+            'cascade_save' => false,
+            'cascade_delete' => false,
+        )
+    );
  }
 
 
